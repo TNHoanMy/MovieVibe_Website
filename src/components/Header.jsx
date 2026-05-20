@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Film, Search, Settings } from 'lucide-react';
+import { Film, Search } from 'lucide-react';
 
-export default function Header({ onOpenSettings, searchVal, onSearchChange }) {
+export default function Header({ searchVal, onSearchChange }) {
   const navigate = useNavigate();
 
   const handleSearchSubmit = (e) => {
@@ -57,18 +57,6 @@ export default function Header({ onOpenSettings, searchVal, onSearchChange }) {
             )}
           </div>
         </form>
-
-        {/* Action Controls */}
-        <div className="flex items-center gap-4">
-          {/* Settings Button */}
-          <button
-            onClick={onOpenSettings}
-            className="p-2 text-slate-600 dark:text-slate-300 hover:text-brand-yellow-dark dark:hover:text-brand-yellow bg-slate-100 dark:bg-slate-800 rounded-xl hover:scale-105 transition-all-300 shadow-sm cursor-pointer"
-            title="API Settings"
-          >
-            <Settings className="w-5 h-5" />
-          </button>
-        </div>
 
       </div>
     </header>

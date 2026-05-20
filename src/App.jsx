@@ -5,11 +5,9 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import MovieDetails from './pages/MovieDetails';
 import ActorSheet from './components/ActorSheet';
-import ApiSettings from './components/ApiSettings';
 
 export default function App() {
   const [searchVal, setSearchVal] = useState('');
-  const [settingsOpen, setSettingsOpen] = useState(false);
   const [actorId, setActorId] = useState(null);
   const [actorSheetOpen, setActorSheetOpen] = useState(false);
   const [apiKeyUpdated, setApiKeyUpdated] = useState(false);
@@ -29,7 +27,6 @@ export default function App() {
         
         {/* Navigation Bar */}
         <Header 
-          onOpenSettings={() => setSettingsOpen(true)}
           searchVal={searchVal}
           onSearchChange={setSearchVal}
         />
@@ -65,13 +62,6 @@ export default function App() {
           actorId={actorId}
           isOpen={actorSheetOpen}
           onClose={() => setActorSheetOpen(false)}
-        />
-
-        {/* API Settings Modal */}
-        <ApiSettings 
-          isOpen={settingsOpen}
-          onClose={() => setSettingsOpen(false)}
-          onKeyChange={handleKeyChange}
         />
 
       </div>
