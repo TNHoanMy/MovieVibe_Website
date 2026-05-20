@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Film, Search, Settings, Radio } from 'lucide-react';
-import { isUsingMockData } from '../services/tmdb';
+import { Film, Search, Settings } from 'lucide-react';
 
 export default function Header({ onOpenSettings, searchVal, onSearchChange }) {
   const navigate = useNavigate();
-  const isDemo = isUsingMockData();
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -62,25 +60,10 @@ export default function Header({ onOpenSettings, searchVal, onSearchChange }) {
 
         {/* Action Controls */}
         <div className="flex items-center gap-4">
-          
-          {/* API Status Badge */}
-          <button
-            onClick={onOpenSettings}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-sm transition-all-300 cursor-pointer ${
-              isDemo 
-                ? 'bg-amber-100 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-900/50 hover:bg-amber-200' 
-                : 'bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-900/50 hover:bg-emerald-200'
-            }`}
-            title={isDemo ? "Click để cấu hình TMDB API Key" : "Đang kết nối live tới TMDB API"}
-          >
-            <Radio className={`w-3.5 h-3.5 ${!isDemo ? 'animate-pulse text-emerald-500' : 'text-amber-500'}`} />
-            <span>{isDemo ? 'DEMO MODE' : 'LIVE API'}</span>
-          </button>
-
           {/* Settings Button */}
           <button
             onClick={onOpenSettings}
-            className="p-2 text-slate-600 dark:text-slate-300 hover:text-brand-yellow-dark dark:hover:text-brand-yellow bg-slate-100 dark:bg-slate-800 rounded-xl hover:scale-105 transition-all-300 shadow-sm"
+            className="p-2 text-slate-600 dark:text-slate-300 hover:text-brand-yellow-dark dark:hover:text-brand-yellow bg-slate-100 dark:bg-slate-800 rounded-xl hover:scale-105 transition-all-300 shadow-sm cursor-pointer"
             title="API Settings"
           >
             <Settings className="w-5 h-5" />
